@@ -10,15 +10,74 @@ namespace Desafios
          
             do
             {
-                Console.WriteLine("Quantos testes? ");
-                Desafio05();
+                Console.WriteLine("INÍCIO DO DESAFIO");
+                Desafio06();
                 Console.WriteLine("X - Para sair ou pressione uma tecla p/continuar...");
                 opcao = Console.ReadLine();
+                Console.Clear();
             }
             while (opcao.ToUpper() != "X");
             
         }
+        private static void Desafio06()
+        {
+            try
+            {
+                Console.WriteLine("Informe dois valores (X, Y): ");
+                double x, y;
+                string[] valores = Console.ReadLine().Split();
+                x = Double.Parse(valores[0]);
+                y = Double.Parse(valores[1]);
+                
+                if ((x==0) && (y==0))
+                {
+                    Console.WriteLine("Origem");
+                }
+                else if ((x > 0) && (y == 0)) // SOBRE O EIXO X
+                {
+                    Console.WriteLine("Eixo X");
+                }
+                else if ((x == 0) && (y > 0)) // SOBRE O EIXO Y
+                {
+                    Console.WriteLine("Eixo Y");
+                }
 
+                else if ((x < 0) && (y == 0)) // SOBRE O EIXO -X
+                {
+                    Console.WriteLine("Eixo X");
+                }
+                else if ((x == 0) && (y < 0)) // SOBRE O EIXO -Y
+                {
+                    Console.WriteLine("Eixo Y");
+                }
+
+                else if ((x > 0) && (y > 0))
+                {
+                    Console.WriteLine("Q1");
+                }
+                else if ((x < 0) && (y > 0))
+                {
+                    Console.WriteLine("Q2");
+                }
+                else if ((x < 0) && (y < 0))
+                {
+                    Console.WriteLine("Q3");
+                }
+                else if ((x > 0) && (y < 0))
+                {
+                    Console.WriteLine("Q4");
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message.ToString());
+                return;
+            }
+
+            
+        }
+        /*
         private static void Desafio05()
         {
             int diaInicio, diaTermino, horaMomentoInicio, minutoMomentoInicio, segundoMomentoInicio;
@@ -48,7 +107,7 @@ namespace Desafios
 
             Console.WriteLine("{0} dia(s)", W);
         }
-
+        */
         private static void Desafio04()
         {
             try

@@ -11,7 +11,8 @@ namespace Desafios
             do
             {
                 Console.WriteLine("INÍCIO DO DESAFIO");
-                Desafio06();
+                Console.WriteLine("Informe dois valores: ");
+                Desafio09();                
                 Console.WriteLine("X - Para sair ou pressione uma tecla p/continuar...");
                 opcao = Console.ReadLine();
                 Console.Clear();
@@ -19,6 +20,83 @@ namespace Desafios
             while (opcao.ToUpper() != "X");
             
         }
+
+        // Duas notas válidas
+        private static void Desafio09()
+        {
+            double nota;
+            int qtdIgual = 0;
+            double soma = 0;
+            while (qtdIgual != 2)
+            {
+                qtdIgual++;
+                try
+                {
+                    nota = Convert.ToDouble(Console.ReadLine());
+                    if ( nota >=0 && nota <= 10 )   //complete a condicional
+                    {
+                        soma = soma + nota;
+                    }
+                    else
+                    {
+                        qtdIgual = 0;
+                        Console.WriteLine("nota invalida");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine("Erro: " + ex.Message.ToString());
+                    return;
+                }
+            }
+            //Fim
+            Console.WriteLine("media = {0:0.00}", (soma / 2)); //insira a variavel correta
+
+        }
+
+        private static void Desafio08()
+        {
+            try
+            {
+                int x = 0;
+                string v = Console.ReadLine();
+                char[] arr = v.ToCharArray();
+                foreach (var item in arr)
+                {
+                    x++;
+                }
+                if (x <= 500) //complete a condicional
+                    Console.WriteLine("TWEET");
+                else
+                    Console.WriteLine("MUTE");
+
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message.ToString());
+                return;
+            }
+        }
+
+
+        private static void Desafio07()
+        {
+            try
+            {
+                int a, b, x;
+                string[] valores = Console.ReadLine().Split();
+                a = Convert.ToInt32(valores[0]);
+                b = Convert.ToInt32(valores[1]);
+                x = a + b;
+                Console.WriteLine("X = {0}", x);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message.ToString());
+                return;
+            }
+        }
+
         private static void Desafio06()
         {
             try
@@ -41,7 +119,6 @@ namespace Desafios
                 {
                     Console.WriteLine("Eixo Y");
                 }
-
                 else if ((x < 0) && (y == 0)) // SOBRE O EIXO -X
                 {
                     Console.WriteLine("Eixo X");
@@ -50,7 +127,6 @@ namespace Desafios
                 {
                     Console.WriteLine("Eixo Y");
                 }
-
                 else if ((x > 0) && (y > 0))
                 {
                     Console.WriteLine("Q1");
